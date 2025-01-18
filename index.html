@@ -15,21 +15,23 @@
             background-color: black; /* Fondo negro estilo Matrix */
             font-family: 'Courier New', Courier, monospace; /* Fuente tipo consola */
             color: #00ff00; /* Verde neón estilo Matrix */
-            text-align: center;
+            text-align: left; /* Ajuste de alineación */
+            overflow: hidden; /* Evita desbordes */
         }
 
         .container {
-            max-width: 90%;
+            width: 90%; /* Ancho adaptable */
+            max-width: 600px; /* Límite máximo para texto en pantallas grandes */
+            margin: 0 auto; /* Centrado */
+            overflow-wrap: break-word; /* Permite dividir palabras largas */
         }
 
         p {
-            font-size: 1.5em;
+            font-size: 1.2em;
             line-height: 1.5;
-            text-align: left;
-            white-space: pre-wrap; /* Permite respetar saltos de línea */
+            white-space: pre-wrap; /* Respetar saltos de línea */
             display: inline-block;
-            overflow: hidden;
-            border-right: 2px solid #00ff00; /* Simula el cursor parpadeante */
+            border-right: 2px solid #00ff00; /* Cursor de terminal */
             animation: blink-caret 0.7s step-end infinite;
         }
 
@@ -52,34 +54,40 @@
     <script>
         const textContainer = document.getElementById("text");
 
-        // Obtiene la fecha actual del sistema
+        // Obtén la fecha actual
         const today = new Date();
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const formattedDate = today.toLocaleDateString('es-ES', options); // Formato: 17 de enero de 2025
+        const formattedDate = today.toLocaleDateString('es-ES', options);
 
+        // Mensaje completo
         const lines = [
-            "Cargando mensaje... mar 🌊",
+            "Cargando mensaje... 🌊",
             `Fecha: ${formattedDate}`,
             "Hola, mi amor.",
             "Espero que este mensaje te sorprenda al menos un poco.",
-            "creo que es la manera mas creativa y 'mia' de darte un mensaje",
-            "mira vamos ya un tiempo juntos y hoy cumplimos un mes mas",
-            "se que no ha sido tan perfecto como quisieramos que esto fluyera🌊",
-            "pero de ❤️ voy a hacer las cosas bien por ti .....",
-            "hoy por cosas de la vida no podemos compartir juntos , pero eso no le quita lo especial a esta fecha ",
-            "te habia prometido algo de skincare que no te servia ,",
-            "Peeero los planes cambian , dijsite que te hacian falta jeanes para completar tus outfits",
-            "y se lo importante que es para ti ' todo sea por el outfit' dijiste alguna vez",
-            "pues bueno voy a ayudar a un outfit mas, vamos por un jean el lunes , el que quieras, donde lo quieras",
-            "ADEMAS !!! ",
-            "Este mensaje tiene parte 2 ....",
-            "o creeias que terminaria asi??? 😊",
-            "vamos a almorzar en Crepes & Waffles, (solo por que tengo que respetar mi dieta liquida 😪)",
-            "pide lo que quieras con postre incluido , eso va a el ❤️ , pero tienes que comertelo tu , ten eso en ceunta",
-            "cuando estemos almorzando , vuelve a esta pagina ! ",
-            "la parte 2 te estara esperando...",
-            "te amo locamente ❤️",
-            "att: 🐻 ...."
+            "Creo que es la manera más creativa y 'mía' de darte un mensaje.",
+            "Mira, llevamos ya un tiempo juntos y hoy cumplimos un mes más.",
+            "Sé que no ha sido tan perfecto como quisiéramos que esto fluyera 🌊,",
+            "pero de ❤️ voy a hacer las cosas bien por ti...",
+            "Hoy, por cosas de la vida, no podemos compartir juntos,",
+            "pero eso no le quita lo especial a esta fecha.",
+            "Te había prometido algo de skincare que no te servía,",
+            "pero los planes cambian.",
+            "Dijiste que te hacían falta jeans para completar tus outfits,",
+            "y sé lo importante que es para ti. 'Todo sea por el outfit', dijiste alguna vez.",
+            "Pues bueno, voy a ayudar a un outfit más.",
+            "Vamos por un jean el lunes, el que quieras, donde lo quieras.",
+            "ADEMÁS!!!",
+            "Este mensaje tiene parte 2...",
+            "¿O creías que terminaría así? 😊",
+            "Vamos a almorzar en Crepes & Waffles",
+            "(solo porque tengo que respetar mi dieta líquida 😪).",
+            "Pide lo que quieras con postre incluido.",
+            "Eso va al ❤️, pero tienes que comértelo tú. Ten eso en cuenta.",
+            "Cuando estemos almorzando, vuelve a esta página.",
+            "La parte 2 te estará esperando...",
+            "Te amo locamente ❤️.",
+            "Att: 🐻"
         ];
 
         let lineIndex = 0;
@@ -91,7 +99,7 @@
                 if (charIndex < line.length) {
                     textContainer.innerHTML += line[charIndex];
                     charIndex++;
-                    setTimeout(typeLine, 100); // Velocidad de escritura
+                    setTimeout(typeLine, 50); // Velocidad de escritura
                 } else {
                     textContainer.innerHTML += "\n"; // Nueva línea
                     charIndex = 0;
@@ -101,10 +109,11 @@
             }
         }
 
-        // Inicia la escritura cuando la página cargue
+        // Inicia el efecto de escritura
         document.addEventListener("DOMContentLoaded", function () {
-            typeLine(); // Inicia el efecto de escritura
+            typeLine();
         });
     </script>
 </body>
 </html>
+
