@@ -52,43 +52,20 @@
     <script>
         const textContainer = document.getElementById("text");
 
+        // Obtiene la fecha actual del sistema
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = today.toLocaleDateString('es-ES', options); // Formato: 17 de enero de 2025
+
         const lines = [
-            "Cargando mensaje...",
+            "Cargando mensaje... mar 🌊",
+            `Fecha: ${formattedDate}`,
             "Hola, mi amor.",
-            "Espero que este mensaje te sorprenda.",
-            "Quería decirte algo que siento desde hace mucho tiempo.",
+            "Espero que este mensaje te sorprenda al menos un poco.",
+            "creo que es la manera mas creativa y 'mia' ",
             "Cada día contigo es especial, único y maravilloso.",
-            "Hoy quiero invitarte a una aventura inolvidable.",
-            "¿Aceptas acompañarme esta noche? ❤️",
-            "Cargando mensaje...",
-            "Hola, mi amor.",
-            "Espero que este mensaje te sorprenda.",
-            "Quería decirte algo que siento desde hace mucho tiempo.",
-            "Cada día contigo es especial, único y maravilloso.",
-            "Hoy quiero invitarte a una aventura inolvidable.",
-            "¿Aceptas acompañarme esta noche? ❤️",
-            "Cargando mensaje...",
-            "Hola, mi amor.",
-            "Espero que este mensaje te sorprenda.",
-            "Quería decirte algo que siento desde hace mucho tiempo.",
-            "Cada día contigo es especial, único y maravilloso.",
-            "Hoy quiero invitarte a una aventura inolvidable.",
-            "¿Aceptas acompañarme esta noche? ❤️",
-            "Cargando mensaje...",
-            "Hola, mi amor.",
-            "Espero que este mensaje te sorprenda.",
-            "Quería decirte algo que siento desde hace mucho tiempo.",
-            "Cada día contigo es especial, único y maravilloso.",
-            "Hoy quiero invitarte a una aventura inolvidable.",
-            "¿Aceptas acompañarme esta noche? ❤️",
-            "Cargando mensaje...",
-            "Hola, mi amor.",
-            "Espero que este mensaje te sorprenda.",
-            "Quería decirte algo que siento desde hace mucho tiempo.",
-            "Cada día contigo es especial, único y maravilloso.",
-            "Hoy quiero invitarte a una aventura inolvidable.",
-            "¿Aceptas acompañarme esta noche? ❤️",
-            
+            "Hoy quiero invitarte a una aventura inolvidable. 🌊",
+            "¿Aceptas acompañarme esta noche? ❤️"
         ];
 
         let lineIndex = 0;
