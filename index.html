@@ -12,37 +12,27 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: black; /* Fondo negro estilo Matrix */
-            font-family: 'Courier New', Courier, monospace; /* Fuente tipo consola */
-            color: #00ff00; /* Verde neón estilo Matrix */
-            text-align: left; /* Ajuste de alineación */
-            overflow: hidden; /* Evita desbordes */
+            background-color: black;
+            font-family: 'Courier New', Courier, monospace;
+            color: #00ff00;
+            text-align: left;
         }
 
         .container {
-            width: 90%; /* Ancho adaptable */
-            max-width: 600px; /* Límite máximo para texto en pantallas grandes */
-            margin: 0 auto; /* Centrado */
-            overflow-wrap: break-word; /* Permite dividir palabras largas */
+            width: 90%;
+            max-width: 600px;
+            height: 80vh; /* Altura máxima fija */
+            overflow-y: auto; /* Habilita el scroll */
+            white-space: pre-wrap; /* Respeta saltos de línea */
+            margin: 0 auto;
+            border: 1px solid #00ff00;
+            padding: 10px;
+            box-sizing: border-box; /* Asegura que el padding no aumente el tamaño */
         }
 
         p {
             font-size: 1.2em;
             line-height: 1.5;
-            white-space: pre-wrap; /* Respetar saltos de línea */
-            display: inline-block;
-            border-right: 2px solid #00ff00; /* Cursor de terminal */
-            animation: blink-caret 0.7s step-end infinite;
-        }
-
-        /* Animación de parpadeo del cursor */
-        @keyframes blink-caret {
-            from, to {
-                border-color: transparent;
-            }
-            50% {
-                border-color: #00ff00;
-            }
         }
     </style>
 </head>
@@ -90,6 +80,9 @@
             "Att: 🐻"
         ];
 
+        const maxVisibleLines = 10; // Número máximo de líneas visibles
+        const displayedLines = []; // Almacena solo las líneas visibles
+
         let lineIndex = 0;
         let charIndex = 0;
 
@@ -97,22 +90,27 @@
             if (lineIndex < lines.length) {
                 const line = lines[lineIndex];
                 if (charIndex < line.length) {
-                    textContainer.innerHTML += line[charIndex];
+                    // Construye la línea actual carácter por carácter
+                    if (!displayedLines[lineIndex]) displayedLines[lineIndex] = "";
+                    displayedLines[displayedLines.length - 1] += line[charIndex];
                     charIndex++;
-                    setTimeout(typeLine, 50); // Velocidad de escritura
                 } else {
-                    textContainer.innerHTML += "\n"; // Nueva línea
+                    // Cuando termina una línea, pasa a la siguiente
+                    displayedLines.push("");
+                    if (displayedLines.length > maxVisibleLines) {
+                        displayedLines.shift(); // Elimina la línea más antigua
+                    }
                     charIndex = 0;
                     lineIndex++;
-                    setTimeout(typeLine, 500); // Pausa entre líneas
                 }
+
+                // Actualiza el contenedor con las líneas visibles
+                textContainer.innerText = displayedLines.join("\n");
+                setTimeout(typeLine, charIndex === 0 ? 500 : 50); // Pausa más larga entre líneas
             }
         }
 
-        // Inicia el efecto de escritura
-        document.addEventListener("DOMContentLoaded", function () {
-            typeLine();
-        });
+        document.addEventListener("DOMContentLoaded", typeLine);
     </script>
 </body>
 </html>
