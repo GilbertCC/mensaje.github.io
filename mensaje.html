@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje para Ti</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black; /* Fondo negro estilo Matrix */
+            font-family: 'Courier New', Courier, monospace; /* Fuente tipo consola */
+            color: #00ff00; /* Verde neón estilo Matrix */
+            text-align: center;
+        }
+
+        .container {
+            max-width: 90%;
+        }
+
+        p {
+            font-size: 1.5em;
+            line-height: 1.5;
+            text-align: left;
+            white-space: pre-wrap; /* Permite respetar saltos de línea */
+            display: inline-block;
+            overflow: hidden;
+            border-right: 2px solid #00ff00; /* Simula el cursor parpadeante */
+            animation: blink-caret 0.7s step-end infinite;
+        }
+
+        /* Animación de parpadeo del cursor */
+        @keyframes blink-caret {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #00ff00;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p id="text"></p>
+    </div>
+
+    <script>
+        const textContainer = document.getElementById("text");
+
+        const lines = [
+            "Cargando mensaje...",
+            "Hola, mi amor.",
+            "Espero que este mensaje te sorprenda.",
+            "Quería decirte algo que siento desde hace mucho tiempo.",
+            "Cada día contigo es especial, único y maravilloso.",
+            "Hoy quiero invitarte a una aventura inolvidable.",
+            "¿Aceptas acompañarme esta noche? ❤️",
+            "Cargando mensaje...",
+            "Hola, mi amor.",
+            "Espero que este mensaje te sorprenda.",
+            "Quería decirte algo que siento desde hace mucho tiempo.",
+            "Cada día contigo es especial, único y maravilloso.",
+            "Hoy quiero invitarte a una aventura inolvidable.",
+            "¿Aceptas acompañarme esta noche? ❤️",
+            "Cargando mensaje...",
+            "Hola, mi amor.",
+            "Espero que este mensaje te sorprenda.",
+            "Quería decirte algo que siento desde hace mucho tiempo.",
+            "Cada día contigo es especial, único y maravilloso.",
+            "Hoy quiero invitarte a una aventura inolvidable.",
+            "¿Aceptas acompañarme esta noche? ❤️",
+            "Cargando mensaje...",
+            "Hola, mi amor.",
+            "Espero que este mensaje te sorprenda.",
+            "Quería decirte algo que siento desde hace mucho tiempo.",
+            "Cada día contigo es especial, único y maravilloso.",
+            "Hoy quiero invitarte a una aventura inolvidable.",
+            "¿Aceptas acompañarme esta noche? ❤️",
+            "Cargando mensaje...",
+            "Hola, mi amor.",
+            "Espero que este mensaje te sorprenda.",
+            "Quería decirte algo que siento desde hace mucho tiempo.",
+            "Cada día contigo es especial, único y maravilloso.",
+            "Hoy quiero invitarte a una aventura inolvidable.",
+            "¿Aceptas acompañarme esta noche? ❤️",
+            
+        ];
+
+        let lineIndex = 0;
+        let charIndex = 0;
+
+        function typeLine() {
+            if (lineIndex < lines.length) {
+                const line = lines[lineIndex];
+                if (charIndex < line.length) {
+                    textContainer.innerHTML += line[charIndex];
+                    charIndex++;
+                    setTimeout(typeLine, 100); // Velocidad de escritura
+                } else {
+                    textContainer.innerHTML += "\n"; // Nueva línea
+                    charIndex = 0;
+                    lineIndex++;
+                    setTimeout(typeLine, 500); // Pausa entre líneas
+                }
+            }
+        }
+
+        // Inicia la escritura cuando la página cargue
+        document.addEventListener("DOMContentLoaded", function () {
+            typeLine(); // Inicia el efecto de escritura
+        });
+    </script>
+</body>
+</html>
