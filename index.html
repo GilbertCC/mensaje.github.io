@@ -16,6 +16,35 @@
       color: white;
     }
 
+    #intro {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      animation: fadeOut 2s ease 3s forwards;
+    }
+
+    #intro span {
+      color: red;
+      font-size: 3em;
+      font-weight: bold;
+      animation: zoomIn 2s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
     header {
       background-color: #000;
       padding: 16px;
@@ -25,7 +54,7 @@
     }
 
     .banner {
-      background: linear-gradient(to top, #000, transparent), url('https://imgur.com/a/ed2c8B1') center/cover no-repeat;
+      background: linear-gradient(to top, #000, transparent), url('https://via.placeholder.com/800x400/000000/FFFFFF?text=GCFlix') center/cover no-repeat;
       height: 50vh;
       display: flex;
       align-items: flex-end;
@@ -135,6 +164,10 @@
   </style>
 </head>
 <body>
+  <div id="intro">
+    <span>GCFlix</span>
+  </div>
+
   <header>
     GCFlix: Una historia original de Gilbert & Catalina
   </header>
