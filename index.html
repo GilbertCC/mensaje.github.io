@@ -153,6 +153,16 @@
       box-shadow: 0 8px 40px rgba(255, 255, 255, 0.2);
     }
 
+    .video-card {
+      background: none;
+      border: none;
+      backdrop-filter: none;
+    }
+
+    .video-card::before {
+      content: none;
+    }
+
     .video-card video {
       width: 100%;
       height: 100%;
@@ -251,6 +261,11 @@
           <source src="img/vid4.mp4" type="video/mp4">
         </video>
       </div>
+      <div class="card video-card">
+        <video muted playsinline autoplay loop>
+          <source src="img/vid5.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
   </div>
 
@@ -270,7 +285,8 @@
     // Mostrar mensaje automáticamente después de unos segundos
     setTimeout(() => {
       document.getElementById("ringMessage").style.display = "block";
-    }, 8000); // 8 segundos luego de iniciar la página
+    }, 8000);
   </script>
 </body>
 </html>
+
