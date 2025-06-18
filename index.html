@@ -61,15 +61,24 @@
 
     .banner {
       height: 60vh;
-      background: url('img/img1.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: flex-end;
-      padding: 30px;
-      box-shadow: inset 0 -80px 80px -30px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .banner h1 {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
       font-size: 2.5em;
+      background-color: rgba(0,0,0,0.6);
+      padding: 10px 20px;
+      border-radius: 10px;
     }
 
     .section {
@@ -169,6 +178,10 @@
   </header>
 
   <div class="banner">
+    <video autoplay muted playsinline loop>
+      <source src="img/vid1.mp4" type="video/mp4">
+      Tu navegador no admite el video.
+    </video>
     <h1>Una historia sin pausa</h1>
   </div>
 
