@@ -1,66 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mensaje para Ti</title>
+    <title>Proyecto Secreto</title>
     <style>
         body {
             margin: 0;
             padding: 0;
+            background-color: black;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: black;
-            font-family: 'Courier New', Courier, monospace;
-            color: #00ff00;
-            text-align: left;
         }
 
         .container {
             width: 90%;
-            max-width: 600px;
-            height: 80vh; /* Altura máxima fija */
-            overflow-y: auto; /* Habilita el scroll */
-            white-space: pre-wrap; /* Respeta saltos de línea */
-            margin: 0 auto;
+            max-width: 700px;
+            height: 80vh;
+            overflow-y: auto;
+            white-space: pre-wrap;
             border: 1px solid #00ff00;
-            padding: 10px;
-            box-sizing: border-box; /* Asegura que el padding no aumente el tamaño */
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: left;
+            position: relative;
         }
 
-        p {
-            font-size: 1.2em;
-            line-height: 1.5;
+        #text::after {
+            content: "|";
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        #ring {
+            display: none;
+            font-size: 2.5em;
+            text-align: center;
+            margin-top: 30px;
+            color: #ff69b4;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <p id="text"></p>
+        <div id="ring">💍 G + C 💍</div>
     </div>
 
     <script>
         const textContainer = document.getElementById("text");
+        const ringDiv = document.getElementById("ring");
 
-        // Obtén la fecha actual
         const today = new Date();
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const formattedDate = today.toLocaleDateString('es-ES', options);
 
-        // Mensaje completo
         const lines = [
-            "Cargando mensaje... 🌊",
-            `Fecha: ${formattedDate}`,
-            "LA VIDA ES UN POCO MEJOR CON MUSICA NO CREES AMOR? ",
-            "y segun se , me dijiste que no tenias spotify ....",
-            "a bailar ps ! ..... ese es el codigo para q actives tu cuenta ! "
+            ">>> Accediendo a protocolo secreto [GC-♥]...",
+            `>>> Fecha: ${formattedDate}`,
+            ">>> Buscando destinataria: Catalina...",
+            ">>> Confirmada: Amor de mi vida 💖",
+            ">>> Cargando memorias compartidas...",
+            ">>> Procesando besos, risas, abrazos...",
+            ">>> Resultado: tú haces que todo valga la pena.",
+            ">>> Cargando archivo especial...",
+            ">>> Iniciales encontradas: G + C",
+            ">>> Generando sorpresa...",
+            ">>> Catalina, este mensaje no es solo texto...",
+            ">>> Es mi forma de decirte...",
+            ">>> Que eres lo mejor que me ha pasado.",
+            ">>> Y que quiero seguir escribiendo nuestra historia juntos.",
+            ">>> Abre la caja... 💍 Esto es para ti."
         ];
 
-        const maxVisibleLines = 10; // Número máximo de líneas visibles
-        const displayedLines = []; // Almacena solo las líneas visibles
-
+        const maxVisibleLines = 12;
+        const displayedLines = [];
         let lineIndex = 0;
         let charIndex = 0;
 
@@ -68,23 +89,24 @@
             if (lineIndex < lines.length) {
                 const line = lines[lineIndex];
                 if (charIndex < line.length) {
-                    // Construye la línea actual carácter por carácter
-                    if (!displayedLines[lineIndex]) displayedLines[lineIndex] = "";
+                    if (displayedLines.length === 0) {
+                        displayedLines.push("");
+                    }
                     displayedLines[displayedLines.length - 1] += line[charIndex];
                     charIndex++;
                 } else {
-                    // Cuando termina una línea, pasa a la siguiente
                     displayedLines.push("");
                     if (displayedLines.length > maxVisibleLines) {
-                        displayedLines.shift(); // Elimina la línea más antigua
+                        displayedLines.shift();
                     }
                     charIndex = 0;
                     lineIndex++;
                 }
 
-                // Actualiza el contenedor con las líneas visibles
                 textContainer.innerText = displayedLines.join("\n");
-                setTimeout(typeLine, charIndex === 0 ? 500 : 50); // Pausa más larga entre líneas
+                setTimeout(typeLine, charIndex === 0 ? 800 : 40);
+            } else {
+                ringDiv.style.display = "block";
             }
         }
 
@@ -92,4 +114,3 @@
     </script>
 </body>
 </html>
-
