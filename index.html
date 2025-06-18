@@ -130,11 +130,11 @@
       z-index: 0;
     }
 
-    .row:nth-of-type(1) .card:nth-child(1)::before { background-image: url('img/img2.jpg'); }
-    .row:nth-of-type(1) .card:nth-child(2)::before { background-image: url('img/img3.jpg'); }
-    .row:nth-of-type(1) .card:nth-child(3)::before { background-image: url('img/img4.jpg'); }
-    .row:nth-of-type(1) .card:nth-child(4)::before { background-image: url('img/img5.jpg'); }
-    .row:nth-of-type(1) .card:nth-child(5)::before { background-image: url('img/img6.jpg'); }
+    .card:nth-child(1)::before { background-image: url('img/img2.jpg'); }
+    .card:nth-child(2)::before { background-image: url('img/img3.jpg'); }
+    .card:nth-child(3)::before { background-image: url('img/img4.jpg'); }
+    .card:nth-child(4)::before { background-image: url('img/img5.jpg'); }
+    .card:nth-child(5)::before { background-image: url('img/img6.jpg'); }
 
     .card-content {
       position: relative;
@@ -276,6 +276,11 @@
       <div class="card video-card">
         <video muted playsinline autoplay loop poster="img/poster4.jpg">
           <source src="img/vid4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card video-card">
+        <video muted playsinline autoplay loop poster="img/poster4.jpg">
+          <source src="img/vid5.mp4" type="video/mp4">
         </video>
       </div>
     </div>
