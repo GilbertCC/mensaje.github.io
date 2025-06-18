@@ -54,7 +54,7 @@
     }
 
     .banner {
-      background: linear-gradient(to top, #000, transparent), url('https://images.unsplash.com/photo-1518674660708-6d6d9829f42f?fit=crop&w=1200&q=80') center/cover no-repeat;
+      background: linear-gradient(to top, #000, transparent), url('https://i.imgur.com/QsZ8rG0.jpg') center/cover no-repeat;
       height: 50vh;
       display: flex;
       align-items: flex-end;
@@ -84,7 +84,7 @@
     }
 
     .card {
-      background: url('https://imgur.com/a/ed2c8B1') center/cover no-repeat;
+      background: url('https://i.imgur.com/QsZ8rG0.jpg') center/cover no-repeat;
       min-width: 150px;
       height: 220px;
       border-radius: 8px;
@@ -207,6 +207,15 @@
       document.getElementById('surprise').style.display = 'block';
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
+
+    // Reproducir sonido de Netflix al primer clic
+    window.addEventListener("click", function playSoundOnce() {
+      const audio = document.getElementById("netflixSound");
+      if (audio) {
+        audio.play().catch(() => {});
+        window.removeEventListener("click", playSoundOnce);
+      }
+    });
   </script>
 </body>
 </html>
