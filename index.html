@@ -54,7 +54,7 @@
     }
 
     .banner {
-      background: linear-gradient(to top, #000, transparent), url('https://imgur.com/a/ed2c8B1') center/cover no-repeat;
+      background: linear-gradient(to top, #000, transparent), url('https://images.unsplash.com/photo-1518674660708-6d6d9829f42f?fit=crop&w=1200&q=80') center/cover no-repeat;
       height: 50vh;
       display: flex;
       align-items: flex-end;
@@ -84,7 +84,7 @@
     }
 
     .card {
-      background-color: #222;
+      background: url('https://images.unsplash.com/photo-1528459105426-becb2ab6c5e1?fit=crop&w=400&q=80') center/cover no-repeat;
       min-width: 150px;
       height: 220px;
       border-radius: 8px;
@@ -92,6 +92,8 @@
       align-items: flex-end;
       padding: 10px;
       font-size: 0.85em;
+      color: white;
+      text-shadow: 0 1px 3px black;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       position: relative;
       flex-shrink: 0;
@@ -166,6 +168,9 @@
 <body>
   <div id="intro">
     <span>GCFlix</span>
+    <audio id="netflixSound" autoplay>
+      <source src="https://github.com/ronreiter/interactive-tutorials/raw/master/netflix/netflix-intro.mp3" type="audio/mpeg">
+    </audio>
   </div>
 
   <header>
