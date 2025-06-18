@@ -3,18 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Secreto</title>
+    <title>Mensaje Secreto</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: black;
-            color: #00ff00;
+            background: black;
+            overflow: hidden;
             font-family: 'Courier New', Courier, monospace;
+            color: #00ffcc;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+        }
+
+        /* Fondo animado tipo estrellas */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: transparent url('https://i.imgur.com/5RZ9QAC.png') repeat;
+            opacity: 0.1;
+            animation: moveStars 60s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes moveStars {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
         }
 
         .container {
@@ -23,11 +50,14 @@
             height: 80vh;
             overflow-y: auto;
             white-space: pre-wrap;
-            border: 1px solid #00ff00;
-            padding: 20px;
+            border: 2px solid #00ffcc;
+            padding: 25px;
             box-sizing: border-box;
             text-align: left;
-            position: relative;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 0 20px #00ffcc80;
+            border-radius: 15px;
         }
 
         #text::after {
@@ -41,10 +71,16 @@
 
         #ring {
             display: none;
-            font-size: 2.5em;
+            font-size: 2.8em;
             text-align: center;
             margin-top: 30px;
             color: #ff69b4;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
@@ -63,21 +99,21 @@
         const formattedDate = today.toLocaleDateString('es-ES', options);
 
         const lines = [
-            ">>> Accediendo a protocolo secreto [GC-♥]...",
+            ">>> Iniciando protocolo de acceso...",
             `>>> Fecha: ${formattedDate}`,
-            ">>> Buscando destinataria: Catalina...",
-            ">>> Confirmada: Amor de mi vida 💖",
-            ">>> Cargando memorias compartidas...",
-            ">>> Procesando besos, risas, abrazos...",
-            ">>> Resultado: tú haces que todo valga la pena.",
-            ">>> Cargando archivo especial...",
-            ">>> Iniciales encontradas: G + C",
-            ">>> Generando sorpresa...",
-            ">>> Catalina, este mensaje no es solo texto...",
-            ">>> Es mi forma de decirte...",
-            ">>> Que eres lo mejor que me ha pasado.",
-            ">>> Y que quiero seguir escribiendo nuestra historia juntos.",
-            ">>> Abre la caja... 💍 Esto es para ti."
+            ">>> Autenticando destinataria...",
+            ">>> Confirmado: Catalina 💖",
+            ">>> Cargando recuerdos compartidos...",
+            ">>> Analizando emociones...",
+            ">>> Resultado: Amor verdadero 💘",
+            ">>> Compilando mensaje secreto...",
+            ">>> Iniciales: G + C",
+            ">>> Estimación de amor: ∞",
+            ">>> Catalina, esto no es solo un texto...",
+            ">>> Es mi forma de decirte que eres mi todo.",
+            ">>> Hoy te regalo algo más que palabras...",
+            ">>> Abre la caja cuando termine este mensaje.",
+            ">>> Esto es para ti... con todo mi amor. 💍"
         ];
 
         const maxVisibleLines = 12;
@@ -104,7 +140,7 @@
                 }
 
                 textContainer.innerText = displayedLines.join("\n");
-                setTimeout(typeLine, charIndex === 0 ? 800 : 40);
+                setTimeout(typeLine, charIndex === 0 ? 900 : 40);
             } else {
                 ringDiv.style.display = "block";
             }
