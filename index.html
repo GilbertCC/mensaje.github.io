@@ -3,22 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GCFlix: Nuestra Historia</title>
+  <title>GCFlix</title>
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #141414;
+      background-color: black;
       color: white;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
     }
 
     #intro {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
       background-color: black;
@@ -26,189 +29,66 @@
       align-items: center;
       justify-content: center;
       z-index: 1000;
-      animation: fadeOut 2s ease 3s forwards;
+      animation: fadeOut 2s ease 4s forwards;
     }
 
-    #intro span {
+    .netflix-n {
+      font-size: 10rem;
       color: red;
-      font-size: 3em;
       font-weight: bold;
-      animation: zoomIn 2s ease;
+      animation: zoomIn 2s ease, glow 1s ease-in-out infinite alternate;
     }
 
     @keyframes zoomIn {
-      from { transform: scale(0); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px red, 0 0 10px red;
+      }
+      to {
+        text-shadow: 0 0 20px red, 0 0 40px red;
+      }
     }
 
     @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
 
-    header {
-      background-color: #000;
-      padding: 16px;
+    main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      font-size: 1.2em;
-      letter-spacing: 1px;
-    }
-
-    .banner {
-      background: linear-gradient(to top, #000, transparent), url('./img/Imagen\ de\ WhatsApp\ 2025-06-18\ a\ las\ 15.09.03_30f22326.jpg') center/cover no-repeat;
-      height: 50vh;
-      display: flex;
-      align-items: flex-end;
       padding: 20px;
-      box-shadow: inset 0 -80px 80px -30px rgba(0, 0, 0, 0.7);
-    }
-
-    .banner h1 {
-      font-size: 2em;
-      margin: 0;
-    }
-
-    .section {
-      padding: 20px;
-    }
-
-    .row-title {
-      font-size: 1.1em;
-      margin-bottom: 10px;
-    }
-
-    .row {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .card {
-      background: url('/img/ImagendeWhatsApp2025-06-18alas15.09.03_30f22326.jpg') center/cover no-repeat;
-      min-width: 150px;
-      height: 220px;
-      border-radius: 8px;
-      display: flex;
-      align-items: flex-end;
-      padding: 10px;
-      font-size: 0.85em;
-      color: white;
-      text-shadow: 0 1px 3px black;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      position: relative;
-      flex-shrink: 0;
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-    }
-
-    .card::after {
-      content: "▶";
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 1.3em;
-      opacity: 0.3;
-    }
-
-    .surprise-button {
-      display: block;
-      margin: 30px auto;
-      padding: 14px 26px;
-      background-color: #e50914;
-      color: white;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .surprise-button:hover {
-      background-color: #f6121d;
-    }
-
-    #surprise {
-      display: none;
-      text-align: center;
-      font-size: 1.8em;
-      color: #ff69b4;
-      margin: 30px 10px;
-    }
-
-    @media screen and (max-width: 480px) {
-      .banner {
-        height: 40vh;
-        padding: 12px;
-      }
-
-      .banner h1 {
-        font-size: 1.4em;
-      }
-
-      .card {
-        min-width: 130px;
-        height: 180px;
-        font-size: 0.75em;
-      }
-
-      .surprise-button {
-        width: 80%;
-        font-size: 1em;
-      }
-
-      #surprise {
-        font-size: 1.4em;
-      }
     }
   </style>
 </head>
 <body>
   <div id="intro">
-    <span>GCFlix</span>
+    <div class="netflix-n">N</div>
     <audio id="netflixSound">
       <source src="https://github.com/ronreiter/interactive-tutorials/raw/master/netflix/netflix-intro.mp3" type="audio/mpeg">
     </audio>
   </div>
 
-  <header>
-    GCFlix: Una historia original de Gilbert & Catalina
-  </header>
-
-  <div class="banner">
-    <h1>"Una historia sin pausa"</h1>
-  </div>
-
-  <div class="section">
-    <div class="row-title">Basado en hechos reales</div>
-    <div class="row">
-      <div class="card">La primera vez que te vi</div>
-      <div class="card">Nuestra cita improvisada</div>
-      <div class="card">Ese abrazo que lo dijo todo</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="row-title">Recomendado para ti</div>
-    <div class="row">
-      <div class="card">Amarte sin condiciones</div>
-      <div class="card">Compilar contigo</div>
-      <div class="card">Terminal de abrazos</div>
-    </div>
-  </div>
-
-  <button class="surprise-button" onclick="revealSurprise()">Abrir Sorpresa</button>
-  <div id="surprise">💍 G + C: Esto es solo el inicio de nuestra próxima temporada...</div>
+  <main>
+    <h1>Bienvenida Catalina</h1>
+  </main>
 
   <script>
-    function revealSurprise() {
-      document.getElementById('surprise').style.display = 'block';
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-
-    // Reproducir sonido de Netflix al primer clic
     window.addEventListener("click", function playSoundOnce() {
       const audio = document.getElementById("netflixSound");
       if (audio) {
@@ -219,3 +99,4 @@
   </script>
 </body>
 </html>
+
