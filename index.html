@@ -130,11 +130,11 @@
       z-index: 0;
     }
 
-    .card:nth-child(1)::before { background-image: url('img/img2.jpg'); }
-    .card:nth-child(2)::before { background-image: url('img/img3.jpg'); }
-    .card:nth-child(3)::before { background-image: url('img/img4.jpg'); }
-    .card:nth-child(4)::before { background-image: url('img/img5.jpg'); }
-    .card:nth-child(5)::before { background-image: url('img/img6.jpg'); }
+    .row:nth-of-type(1) .card:nth-child(1)::before { background-image: url('img/img2.jpg'); }
+    .row:nth-of-type(1) .card:nth-child(2)::before { background-image: url('img/img3.jpg'); }
+    .row:nth-of-type(1) .card:nth-child(3)::before { background-image: url('img/img4.jpg'); }
+    .row:nth-of-type(1) .card:nth-child(4)::before { background-image: url('img/img5.jpg'); }
+    .row:nth-of-type(1) .card:nth-child(5)::before { background-image: url('img/img6.jpg'); }
 
     .card-content {
       position: relative;
@@ -183,6 +183,23 @@
       margin-left: auto;
       margin-right: auto;
       animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    #revealButton {
+      display: block;
+      margin: 40px auto;
+      padding: 15px 30px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #revealButton:hover {
+      background-color: darkred;
     }
 
     @keyframes fadeIn {
@@ -247,28 +264,24 @@
     <div class="row-title">Nuestros Momentos en Video</div>
     <div class="row">
       <div class="card video-card">
-        <video muted playsinline autoplay loop>
+        <video muted playsinline autoplay loop poster="img/poster2.jpg">
           <source src="img/vid2.mp4" type="video/mp4">
         </video>
       </div>
       <div class="card video-card">
-        <video muted playsinline autoplay loop>
+        <video muted playsinline autoplay loop poster="img/poster3.jpg">
           <source src="img/vid3.mp4" type="video/mp4">
         </video>
       </div>
       <div class="card video-card">
-        <video muted playsinline autoplay loop>
+        <video muted playsinline autoplay loop poster="img/poster4.jpg">
           <source src="img/vid4.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="card video-card">
-        <video muted playsinline autoplay loop>
-          <source src="img/vid5.mp4" type="video/mp4">
         </video>
       </div>
     </div>
   </div>
 
+  <button id="revealButton">Ver mensaje especial</button>
   <div id="ringMessage">
     Catalina, este anillo guarda nuestras iniciales y mi promesa eterna de amor. 💍 ¿Quieres casarte conmigo?
   </div>
@@ -282,11 +295,10 @@
       }
     });
 
-    // Mostrar mensaje automáticamente después de unos segundos
-    setTimeout(() => {
+    document.getElementById("revealButton").addEventListener("click", () => {
+      document.getElementById("revealButton").style.display = "none";
       document.getElementById("ringMessage").style.display = "block";
-    }, 8000);
+    });
   </script>
 </body>
 </html>
-
