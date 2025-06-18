@@ -153,6 +153,33 @@
       box-shadow: 0 8px 40px rgba(255, 255, 255, 0.2);
     }
 
+    .video-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    #ringMessage {
+      display: none;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.5em;
+      padding: 20px;
+      background-color: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      backdrop-filter: blur(8px);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 768px) {
       .banner h1 {
         font-size: 1.6em;
@@ -174,7 +201,7 @@
   </div>
 
   <header>
-    GCFlix: Bienvenida Catalina
+   Bienvenida Esposa
   </header>
 
   <div class="banner">
@@ -206,6 +233,31 @@
     </div>
   </div>
 
+  <div class="section">
+    <div class="row-title">Nuestros Momentos en Video</div>
+    <div class="row">
+      <div class="card video-card">
+        <video muted playsinline autoplay loop>
+          <source src="img/vid2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card video-card">
+        <video muted playsinline autoplay loop>
+          <source src="img/vid3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card video-card">
+        <video muted playsinline autoplay loop>
+          <source src="img/vid4.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div id="ringMessage">
+    Catalina, este anillo guarda nuestras iniciales y mi promesa eterna de amor. 💍 ¿Quieres casarte conmigo?
+  </div>
+
   <script>
     window.addEventListener("click", function playSoundOnce() {
       const audio = document.getElementById("netflixSound");
@@ -214,6 +266,11 @@
         window.removeEventListener("click", playSoundOnce);
       }
     });
+
+    // Mostrar mensaje automáticamente después de unos segundos
+    setTimeout(() => {
+      document.getElementById("ringMessage").style.display = "block";
+    }, 8000); // 8 segundos luego de iniciar la página
   </script>
 </body>
 </html>
